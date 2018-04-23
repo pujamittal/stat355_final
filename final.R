@@ -63,8 +63,8 @@ t.test(groupC_colour, alternative = "greater", mu = 10)
 groupDd<-subset(painters$Drawing, (painters$School == "D"))
 groupD_draw=sample(groupDd,1000,replace = TRUE)
 t.test(groupD_draw, alternative = "less", mu = 10)
-#no
-#p-value = 0.3863
+#not at the .05 level but at the .1 level
+#p-value = 0.08374
 #mean 9.971
 
 groupDcl<-subset(painters$Colour, (painters$School == "D"))
