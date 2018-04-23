@@ -7,9 +7,11 @@ painters
 painter_sums <- data.frame(rowSums(painters[,1:4]))
 colnames(painter_sums) <- c('sum')
 
-#sum of scores by each school
-agg_paint <- aggregate(. ~ School, painters, sum)
-# A is highest in Composition, Drawing, and Expression
+#average of scores by each school
+agg_paint <- aggregate(. ~ School, painters, mean)
+?aggregate
+# H is highest in Composition and Expression
+# A is highest in Drawing
 # D is highest in Colour
 
 # Renaissance
@@ -27,11 +29,6 @@ groupAcl<-subset(painters$Colour, (painters$School == "A"))
 groupA_colour=sample(groupAcl,1000,replace = TRUE)
 t.test(groupA_colour, alternative = "greater", mu = 10)
 #no
-
-groupAcm<-subset(painters$Composition, (painters$School == "A"))
-groupA_comp=sample(groupAcm,1000,replace = TRUE)
-t.test(groupA_comp, alternative = "two.sided", mu = 10)
-#yes
 
 # Mannerist
 groupBcm<-subset(painters$Composition, (painters$School == "B"))
@@ -65,4 +62,15 @@ t.test(groupD_colour, alternative = "greater", mu = 10)
 groupEcm<-subset(painters$Composition, (painters$School == "E"))
 groupE_comp=sample(groupEcm,1000,replace = TRUE)
 t.test(groupE_comp, alternative = "greater", mu = 10)
+#yes
+
+# French
+groupHcm<-subset(painters$Composition, (painters$School == "H"))
+groupH_comp=sample(groupHcm,1000,replace = TRUE)
+t.test(groupH_comp, alternative = "greater", mu = 10)
+#yes
+
+groupHe<-subset(painters$Expression, (painters$School == "H"))
+groupH_exp=sample(groupHe,1000,replace = TRUE)
+t.test(groupH_exp, alternative = "greater", mu = 10)
 #yes
