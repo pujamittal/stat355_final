@@ -3,12 +3,14 @@ library(MASS)
 attach(painters)
 painters
 
-#this sums each painter
+#this sums each painter, does not let you know which group they are in
 painter_sums <- data.frame(rowSums(painters[,1:4]))
 colnames(painter_sums) <- c('sum')
 
 #sum of scores by each school
 agg_paint <- aggregate(. ~ School, painters, sum)
+# A is highest in Composition, Drawing, and Expression
+# D is highest in Colour
 
 # Renaissance
 groupAd<-subset(painters$Drawing, (painters$School == "A"))
@@ -25,6 +27,11 @@ groupAcl<-subset(painters$Colour, (painters$School == "A"))
 groupA_colour=sample(groupAcl,1000,replace = TRUE)
 t.test(groupA_colour, alternative = "greater", mu = 10)
 #no
+
+groupAcm<-subset(painters$Composition, (painters$School == "A"))
+groupA_comp=sample(groupAcm,1000,replace = TRUE)
+t.test(groupA_comp, alternative = "two.sided", mu = 10)
+#yes
 
 # Mannerist
 groupBcm<-subset(painters$Composition, (painters$School == "B"))
