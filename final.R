@@ -187,47 +187,47 @@ groupS2<-sample(groupsum2,1000,replace = TRUE)
 
 t.test(groupS1,groupS2)
 
-#t-Test to compare the composition scores of A to E 
+#t-Test to compare the composition scores of A to H 
 
 group1<-subset(painters$Composition, (painters$School == "A"))
 groupBE=sample(group1,1000,replace = TRUE)
-group2<-subset(painters$Composition, (painters$School == "E"))
+group2<-subset(painters$Composition, (painters$School == "H"))
 groupF=sample(group2,1000,replace = TRUE)
 
 t.test(groupBE,groupF)
 
-#t-Test to compare the drawing scores of A to E
+#t-Test to compare the drawing scores of A to H
 
 groupd1<-subset(painters$Drawing, (painters$School == "A" ))
 groupD1<-sample(groupd1,1000,replace = TRUE)
-groupd2<-subset(painters$Drawing, (painters$School == "E"))
+groupd2<-subset(painters$Drawing, (painters$School == "H"))
 groupD2=sample(groupd2,1000,replace = TRUE)
 
 t.test(groupD1,groupD2)
 
-#t-Test to compare the Colour scores of A to E
+#t-Test to compare the Colour scores of A to H
 
 groupc1<-subset(painters$Colour, (painters$School == "A"))
 groupC1<-sample(groupc1,1000,replace = TRUE)
-groupc2<-subset(painters$Colour, (painters$School == "E"))
+groupc2<-subset(painters$Colour, (painters$School == "H"))
 groupC2=sample(groupc2,1000,replace = TRUE)
 
 t.test(groupC1,groupC2)
 
-#t-Test to compare the Expression scores of A to E 
+#t-Test to compare the Expression scores of A to H 
 
 groupe1<-subset(painters$Expression, (painters$School == "A"))
 plotgroupE1<-sample(groupe1,1000,replace = TRUE)
-groupe2<-subset(painters$Expression, (painters$School == "E"))
+groupe2<-subset(painters$Expression, (painters$School == "H"))
 groupE2=sample(groupe2,1000,replace = TRUE)
 
 t.test(groupE1,groupE2)
 
-#t-Test to compare sum of all the scores of A to E
+#t-Test to compare sum of all the scores of A to H
 
 groupsum1<-subset((Composition+Drawing+Colour+Expression), (painters$School == "A"))
 groupS1<-sample(groupsum1,1000,replace=TRUE)
-groupsum2<-subset((Composition+Drawing+Colour+Expression),(painters$School == "E"))
+groupsum2<-subset((Composition+Drawing+Colour+Expression),(painters$School == "H"))
 groupS2<-sample(groupsum2,1000,replace = TRUE)
 
 t.test(groupS1,groupS2)
