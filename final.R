@@ -235,6 +235,8 @@ t.test(groupS1,groupS2)
 
 #Anova(used to compare the three periods A,C,D to see if the time periods have any effect on the scores)
 
+groupACD<-subset(painters,(painters$School=='A' | painters$School=='C' | painters$School=='D'))
+
 #Sum of all the scores 
 myanova<-aov((Composition+Drawing+Colour+Expression)~School , data=groupACD)
 summary(myanova)
